@@ -42,11 +42,42 @@ Por fim tbm modificamos o `tsconfig.json` setando `"strict": false`
 
 ## Dia 2
 
+### Migrations
+
+Migrations servem para podermos manter o nosso banco de dados em atualizado junto com os dos nossos coleguinhas
+
+**criar:** `yarn typeorm migration:create -n <nome da migration>`
+**excluir:** `yarn typeorm migration:revert`, exclui a ultima migration criada
+**rodar** `yarn typeorm migration:run`,
+
+### Entidades no JS
+
+Aqui, quanto a essa parte aprendi mais como vou cirar as entidades pela aplicação
+
+**ciar:** `yarn typeorm entity:create -n <nome da entidade>`
+
+### ormconfig.json
+
+ele vai servir para o ORM, ele quem faz a ponte entre o banco de dados e aplicação
+
+```json
+{
+  "type": "sqlite",
+  "database": "src/database/database.sqlite",
+  "migrations": ["src/database/migrations/*.ts"],
+  "entities": ["src/entities/*.ts"],
+  "cli": {
+    "migrationsDir": "src/database/migrations",
+    "entitiesDir": "src/entities"
+  }
+}
+```
+
 ### Regras
 
 - Cadastro de Usuário
-  - [ ] Não é permitido cadastrar mais de um usuário com o mesmo e-mail
-  - [ ] Não é permitido cadastrar usuário sem e-mail
+  - [x] Não é permitido cadastrar mais de um usuário com o mesmo e-mail
+  - [x] Não é permitido cadastrar usuário sem e-mail
 - Cadastro de TAG
   - [ ] Não é permitido cadastrar mais de uma tag com o mesmo nome
   - [ ] Não é permitido cadastrar tag sem nome
@@ -72,4 +103,8 @@ interface IUserRequest {
 }
 ```
 
-**como usar:**
+**como usar:** na chamada da função a gente pode usar com uma dessestruturação
+
+```ts
+function async execute({ name, email, admin }: IUserRequest)
+```
