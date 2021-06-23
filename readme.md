@@ -79,9 +79,9 @@ ele vai servir para o ORM, ele quem faz a ponte entre o banco de dados e aplica�
   - [x] Não é permitido cadastrar mais de um usuário com o mesmo e-mail
   - [x] Não é permitido cadastrar usuário sem e-mail
 - Cadastro de TAG
-  - [ ] Não é permitido cadastrar mais de uma tag com o mesmo nome
-  - [ ] Não é permitido cadastrar tag sem nome
-  - [ ] Não é permitido o cadastro por usuários que não sejam administradores
+  - [x] Não é permitido cadastrar tag sem nome
+  - [x] Não é permitido cadastrar mais de uma tag com o mesmo nome
+  - [x] Não é permitido o cadastro por usuários que não sejam administradores
 - Cadastro de elogíos
   - [ ] Não é permitido um usuário cadastrar um elogío para si
   - [ ] Não é permitido cadastrar elogios para usuários invalidos
@@ -91,7 +91,7 @@ ele vai servir para o ORM, ele quem faz a ponte entre o banco de dados e aplica�
 
 Alem das regras de negócios entendi melhor como funciona o fluxo de dados da aplicação
 
-- server -> CONTROLLER -> SERVICE -> Repositories -> BD
+> SERVER -> CONTROLLER -> SERVICE -> REPOSITORIES -> BD
 
 ### Interface dos dados no typescript
 
@@ -108,3 +108,32 @@ interface IUserRequest {
 ```ts
 function async execute({ name, email, admin }: IUserRequest)
 ```
+
+## Dia 3
+
+### tratar erros usando middleware
+
+> SERVER -> ROUTES -> CONTROLLER -> SERVICE (throw new Error)
+
+Os erros são gerados na camada de service e a resposta deles é emvida para a camada que está acima, a camada de Controller lá nós tratariamos o nosso erro usando `try catch` mas assim ficaria muito grande e ficaria muito massante ficar fazendo isso em projeto grande então para evitar isso a gente tratou os erros na camada de server com um middleware com o seguinte bloco de código:
+
+```ts
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+  if (err instanceof Error) {
+    return res.status(400).json({ error: err.message });
+  }
+
+  return res.status(500).json({
+    status: "error",
+    message: "internal Server Error",
+  });
+});
+```
+
+### Ordem de criação
+
+1. `migration`
+2. `Entidade`
+3. `Repositório`
+4. `Service`
+5. `Controller`
