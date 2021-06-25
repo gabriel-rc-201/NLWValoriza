@@ -137,3 +137,5 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 3. `Repositório`
 4. `Service`
 5. `Controller`
+
+## Dia 4
