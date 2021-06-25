@@ -83,9 +83,9 @@ ele vai servir para o ORM, ele quem faz a ponte entre o banco de dados e aplica�
   - [x] Não é permitido cadastrar mais de uma tag com o mesmo nome
   - [x] Não é permitido o cadastro por usuários que não sejam administradores
 - Cadastro de elogíos
-  - [ ] Não é permitido um usuário cadastrar um elogío para si
-  - [ ] Não é permitido cadastrar elogios para usuários invalidos
-  - [ ] O usuário precisa estar autenticado na aplicação
+  - [x] Não é permitido um usuário cadastrar um elogío para si
+  - [x] Não é permitido cadastrar elogios para usuários invalidos
+  - [x] O usuário precisa estar autenticado na aplicação
 
 ### Fluxo de dados da API
 
