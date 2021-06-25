@@ -138,4 +138,6 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 4. `Service`
 5. `Controller`
 
-## Dia 4
+## Dias 4 e 5
+
+Foram tão intensos que eu não tive tempo de anotar as coisas tudo kk, mas deu tudo certo, ta completinho o projeto ;)
