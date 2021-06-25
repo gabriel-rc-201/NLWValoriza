@@ -27,12 +27,11 @@ export function ensureAutenticated(
       "8ca1218d222b89915bd0c4abb46a6169"
     ) as IPayload;
 
+    // recuperar informações do usuário
     req.user_id = sub;
 
     return next();
   } catch (err) {
     return res.status(401).end();
   }
-
-  // recuperar informações do usuário
 }
