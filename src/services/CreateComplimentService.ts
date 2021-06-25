@@ -4,7 +4,7 @@ import { UsersRepositories } from "../repositories/UsersRepositories";
 
 interface IComplimentRequest {
   tag_id: string;
-  user_reciver: string;
+  user_receiver: string;
   user_sender: string;
   message: string;
 }
@@ -12,7 +12,7 @@ interface IComplimentRequest {
 class CreateComplimentService {
   async execute({
     tag_id,
-    user_reciver,
+    user_receiver,
     user_sender,
     message,
   }: IComplimentRequest) {
@@ -21,19 +21,19 @@ class CreateComplimentService {
     );
     const usersRepositories = getCustomRepository(UsersRepositories);
 
-    if (user_reciver === user_sender) {
+    if (user_receiver === user_sender) {
       throw new Error("Incorrect User Reciver");
     }
 
-    const userReciverExists = await usersRepositories.findOne(user_reciver);
+    const userReceiverExists = await usersRepositories.findOne(user_receiver);
 
-    if (!userReciverExists) {
+    if (!userReceiverExists) {
       throw new Error("User Reciver does not exist!");
     }
 
     const compliment = complimentsRepositories.create({
       tag_id,
-      user_reciver,
+      user_receiver,
       user_sender,
       message,
     });
