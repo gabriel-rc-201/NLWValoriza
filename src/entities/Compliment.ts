@@ -23,11 +23,11 @@ class Compliment {
   userSender: User;
 
   @Column()
-  user_reciver: string;
+  user_receiver: string;
 
-  @JoinColumn({ name: "user_reciver" })
+  @JoinColumn({ name: "user_receiver" })
   @ManyToOne(() => User)
-  userReciver: User;
+  userReceiver: User;
 
   @Column()
   tag_id: string;
