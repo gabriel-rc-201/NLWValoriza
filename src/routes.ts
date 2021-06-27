@@ -18,7 +18,7 @@ const authenticateUserController = new AuthenticateUserController();
 const createComplimentController = new CreateComplimentController();
 const listUserSendComplimentsController =
   new ListUserSendComplimentsController();
-const listUserReciveComplimentsController =
+const listUserReceiveComplimentsController =
   new ListUserReciveComplimentsController();
 const listTagsController = new ListTagsController();
 const listUsersController = new ListUsersController();
@@ -43,9 +43,9 @@ router.get(
   listUserSendComplimentsController.handle
 );
 router.get(
-  "/users/compliments/recive",
+  "/users/compliments/receive",
   ensureAutenticated,
-  listUserReciveComplimentsController.handle
+  listUserReceiveComplimentsController.handle
 );
 
 router.get("/tags", ensureAutenticated, listTagsController.handle);
