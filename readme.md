@@ -46,9 +46,9 @@ Por fim tbm modificamos o `tsconfig.json` setando `"strict": false`
 
 Migrations servem para podermos manter o nosso banco de dados em atualizado junto com os dos nossos coleguinhas
 
-**criar:** `yarn typeorm migration:create -n <nome da migration>`
-**excluir:** `yarn typeorm migration:revert`, exclui a ultima migration criada
-**rodar** `yarn typeorm migration:run`,
+**criar:** `yarn typeorm migration:create -n <nome da migration>`  
+**excluir:** `yarn typeorm migration:revert`, exclui a ultima migration criada  
+**rodar** `yarn typeorm migration:run`.
 
 ### Entidades no JS
 
