@@ -141,11 +141,3 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 ## Dias 4 e 5
 
 Foram tão intensos que eu não tive tempo de anotar as coisas tudo kk, mas deu tudo certo, ta completinho o projeto ;)
-
-## milha extra
-
-- [ ] enviar email para o usuário q recebeu elogio
-- [ ] colocar em produção
-- [ ] fazer um front end pra aplicação (usar o cors no backend)
-- [ ] explorar o código na questão de arquitetura
-- [ ] substituir o sqlite por outro BD (postgress, mysql, oracle)
